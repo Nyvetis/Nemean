@@ -1,13 +1,12 @@
 package fr.nyvetis.nemean.client
 
+import fr.nyvetis.nemean.Nemean
+import fr.nyvetis.nemean.client.features.FeatureManager
 import net.fabricmc.api.ClientModInitializer
-import org.slf4j.LoggerFactory
 
 object NemeanClient : ClientModInitializer {
-	const val MOD_ID = "nemean"
-	val logger = LoggerFactory.getLogger(MOD_ID)
-
 	override fun onInitializeClient() {
-		logger.info("NemeanClient Loaded!")
+		Nemean.logger.info("NemeanClient Loaded!")
+		FeatureManager.initAll()
 	}
 }
