@@ -10,4 +10,4 @@ As a junior developper, i am not the greatest dev to make things that always wor
 
 ## License
 
-This mod is under the GNU Lesser General Public License v2.1.
+Copyright (C) 2026 Nyvetis — LGPL-2.1-or-later
