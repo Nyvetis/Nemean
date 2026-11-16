@@ -25,6 +25,14 @@ loom {
 	}
 }
 
+sourceSets {
+	named("test") {
+		val client = getByName("client")
+		compileClasspath += client.output + client.compileClasspath
+		runtimeClasspath += client.output + client.runtimeClasspath
+	}
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft("com.mojang:minecraft:${providers.gradleProperty("minecraft_version").get()}")
@@ -33,6 +41,9 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}")
     implementation("net.fabricmc:fabric-language-kotlin:${providers.gradleProperty("fabric_kotlin_version").get()}")
+
+	// For tests
+	testImplementation(kotlin("test"))
 }
 
 tasks.processResources {
@@ -88,4 +99,8 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
+}
+
+tasks.test {
+	useJUnitPlatform()
 }
