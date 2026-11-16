@@ -3,17 +3,15 @@
 	"id": "nemean",
 	"version": "${version}",
 	"name": "Nemean",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
+	"description": "Quality-of-life mod for Hypixel SkyBlock. Visual and informational features only.",
+	"authors": ["Nyvetis"],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+    	"homepage": "https://github.com/Nyvetis/Nemean",
+    	"sources": "https://github.com/Nyvetis/Nemean"
 	},
-	"license": "CC0-1.0",
+	"license": "LGPL-2.1-or-later",
 	"icon": "assets/nemean/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			{
@@ -40,6 +38,6 @@
 		"minecraft": "~26.3",
 		"java": ">=25",
 		"fabric-api": "*",
-		"fabric-language-kotlin": "*"
+		"fabric-language-kotlin": ">=1.14.2+kotlin.2.4.21"
 	}
 }
