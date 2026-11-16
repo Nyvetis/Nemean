@@ -1,7 +1,5 @@
 package fr.nyvetis.nemean.client.core
 
-import net.minecraft.world.level.saveddata.maps.MapItemSavedData.type
-
 data class Drop(val type: String, val item: String)
 
 object DropParser {
