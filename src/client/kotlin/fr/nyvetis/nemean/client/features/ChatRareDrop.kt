@@ -9,6 +9,7 @@ object ChatRareDrop : Feature {
     override fun init() {
         ChatListener.onMessage { text ->
             val drop = DropParser.parse(text) ?: return@onMessage
+            if(drop.type == "RARE") return@onMessage
             TitleDisplay.show("${drop.type} DROP!", drop.item)
         }
     }
