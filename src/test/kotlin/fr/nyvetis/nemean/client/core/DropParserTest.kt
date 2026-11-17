@@ -15,6 +15,14 @@ class DropParserTest {
     }
 
     @Test
+    fun `parses a real slayer drop with item in parentheses`() {
+        assertEquals(
+            Drop("VERY RARE", "Tarantula Silk"),
+            DropParser.parse("VERY RARE DROP! (Tarantula Silk)")
+        )
+    }
+
+    @Test
     fun `parses a rare drop without magic find`() {
         assertEquals(
             Drop("RARE", "Mithril Coat"),

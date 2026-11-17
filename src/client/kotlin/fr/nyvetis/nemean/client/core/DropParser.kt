@@ -7,6 +7,6 @@ object DropParser {
 
     fun parse(text: String): Drop? {
         val match = DROP_REGEX.matchEntire(text) ?: return null
-        return Drop(match.groupValues[1], match.groupValues[2])
+        return Drop(match.groupValues[1], match.groupValues[2].removeSurrounding("(", ")"))
     }
 }
