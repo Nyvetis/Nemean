@@ -10,6 +10,8 @@ Remember that all mods are `use at your own risk`.
 
 As a junior developer, I am not the greatest dev to make things that always work, so Nemean will start slowly, don't expect much. 
 
+Unlike NyveUtils (another mod), Nemean is not gonna get vibe coded. However, AI is used to correct me if something is wrong somewhere in the code so i can learn from these mistakes.
+
 ## Build
 
 `./gradlew build`
