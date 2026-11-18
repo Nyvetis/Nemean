@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory
 
 object Nemean : ModInitializer {
 	const val MOD_ID: String = "nemean"
+	const val CHAT_PREFIX: String = "[Nemean]"
 	val logger = LoggerFactory.getLogger(MOD_ID)
 
 	override fun onInitialize() {
