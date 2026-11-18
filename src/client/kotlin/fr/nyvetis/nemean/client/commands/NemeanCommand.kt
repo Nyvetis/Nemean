@@ -6,8 +6,11 @@ import fr.nyvetis.nemean.client.gui.ScreenOpener
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands.literal
 import com.mojang.brigadier.Command
+import com.mojang.brigadier.arguments.StringArgumentType
 import fr.nyvetis.nemean.client.core.HypixelState
+import fr.nyvetis.nemean.client.features.FeatureManager
 import fr.nyvetis.nemean.client.utils.ChatUtils
+import net.fabricmc.fabric.api.client.command.v2.ClientCommands.argument
 
 object NemeanCommand {
     fun init() {
@@ -25,6 +28,20 @@ object NemeanCommand {
                     context.source.sendFeedback(ChatUtils.prefixed("On Hypixel: ${HypixelState.onHypixel} | In SkyBlock: ${HypixelState.inSkyBlock}"))
                     Command.SINGLE_SUCCESS
                 })
+                .then(literal("toggle")
+                        .then(argument("id", StringArgumentType.word()).executes { context ->
+                            val id = StringArgumentType.getString(context, "id")
+                            val feature = FeatureManager.get(id)
+                            if (feature == null) {
+                                context.source.sendFeedback(ChatUtils.prefixed("Unknown feature: $id"))
+                                return@executes 0
+                            }
+                            feature.enabled.value = !feature.enabled.value
+                            val state = if (feature.enabled.value) "ON" else "OFF"
+                            context.source.sendFeedback(ChatUtils.prefixed("${feature.name}: $state"))
+                            Command.SINGLE_SUCCESS
+                        })
+                )
             )
         }
     }

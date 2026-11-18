@@ -10,4 +10,6 @@ object FeatureManager {
             Nemean.logger.info("Initialized ${feature.name}")
         }
     }
+
+    fun get(id: String): Feature? = all.find { it.id == id }
 }
