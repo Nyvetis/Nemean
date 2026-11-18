@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommands.literal
 import com.mojang.brigadier.Command
 import fr.nyvetis.nemean.client.core.HypixelState
 import fr.nyvetis.nemean.client.utils.ChatUtils
-import net.minecraft.network.chat.Component
 
 object NemeanCommand {
     fun init() {
