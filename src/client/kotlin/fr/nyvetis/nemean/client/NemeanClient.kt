@@ -2,6 +2,7 @@ package fr.nyvetis.nemean.client
 
 import fr.nyvetis.nemean.Nemean
 import fr.nyvetis.nemean.client.commands.NemeanCommand
+import fr.nyvetis.nemean.client.config.ConfigManager
 import fr.nyvetis.nemean.client.core.ChatListener
 import fr.nyvetis.nemean.client.features.FeatureManager
 import fr.nyvetis.nemean.client.gui.ScreenOpener
@@ -13,6 +14,7 @@ object NemeanClient : ClientModInitializer {
 		ScreenOpener.init()
 		NemeanCommand.init()
 		ChatListener.init()
+		ConfigManager.load()
 		FeatureManager.initAll()
 	}
 }

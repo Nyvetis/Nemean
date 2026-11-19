@@ -4,6 +4,7 @@ import fr.nyvetis.nemean.Nemean
 
 object FeatureManager {
     private val all = listOf<Feature>(ChatRareDrop)
+    val features: List<Feature> get() = all
     fun initAll(){
         for (feature in all){
             feature.init()

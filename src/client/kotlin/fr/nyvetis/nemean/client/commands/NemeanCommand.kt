@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands.literal
 import com.mojang.brigadier.Command
 import com.mojang.brigadier.arguments.StringArgumentType
+import fr.nyvetis.nemean.client.config.ConfigManager
 import fr.nyvetis.nemean.client.core.HypixelState
 import fr.nyvetis.nemean.client.features.FeatureManager
 import fr.nyvetis.nemean.client.utils.ChatUtils
@@ -37,6 +38,7 @@ object NemeanCommand {
                                 return@executes 0
                             }
                             feature.enabled.value = !feature.enabled.value
+                            ConfigManager.save()
                             val state = if (feature.enabled.value) "ON" else "OFF"
                             context.source.sendFeedback(ChatUtils.prefixed("${feature.name}: $state"))
                             Command.SINGLE_SUCCESS
